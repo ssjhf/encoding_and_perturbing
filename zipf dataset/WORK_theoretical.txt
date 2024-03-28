@@ -1,0 +1,4 @@
+Epsilon: 0.5, Average Variance/N: 0.2957907228012861
+Epsilon: 1, Average Variance/N: 0.07280499087718229
+Epsilon: 2, Average Variance/N: 0.017110006723838313
+Epsilon: 4, Average Variance/N: 0.003364217017912364
