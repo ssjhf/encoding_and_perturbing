@@ -1,0 +1,10 @@
+Epsilon: 0.5, Average Variance/N: 143.79061398376643
+Epsilon: 1.0, Average Variance/N: 18.576040648894292
+Epsilon: 1.5, Average Variance/N: 5.785442607186171
+Epsilon: 2.0, Average Variance/N: 1.422132530036623
+Epsilon: 2.5, Average Variance/N: 0.5908697914697659
+Epsilon: 3.0, Average Variance/N: 0.22565143357684386
+Epsilon: 3.5, Average Variance/N: 0.08879068460764308
+Epsilon: 4.0, Average Variance/N: 0.04619272740479006
+Epsilon: 4.5, Average Variance/N: 0.02277947140315199
+Epsilon: 5.0, Average Variance/N: 0.012164955292063342
