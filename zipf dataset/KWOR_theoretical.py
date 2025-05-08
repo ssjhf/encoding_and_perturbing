@@ -3,12 +3,6 @@ from scipy.stats import zipf
 from scipy.optimize import minimize_scalar
 from math import exp
 
-def read_data_to_array(filename):
-    with open(filename, 'r') as file:
-        # 读取数据到列表，同时过滤掉999999和999998
-        data = [int(num) for line in file for num in line.split() if int(num) not in [9999999, 9999998]]
-    return np.array(data)
-
 # Helper functions
 def calculate_real_distribution(samples, domain_size):
     distribution = np.zeros(domain_size)
@@ -41,18 +35,18 @@ def calculate_optimal_p_q_per_fi(distribution, N, epsilon_values):
         average_variances_per_epsilon.append(np.nanmean(variances) / N)
     return average_variances_per_epsilon
 
-filename = 'kosarak.dat'
-epsilon_values = np.linspace(0.5, 5, 10)
-sample = read_data_to_array(filename)
-samples = (sample + 20000) // 1000
-N_SAMPLES = len(samples)
-DOMAIN_SIZE = max(samples) + 1
-NUM_OF_EPSILON = len(epsilon_values)
-EPOCHS = 100
-real_distribution = calculate_real_distribution(samples, DOMAIN_SIZE)
+# Load samples from saved file
+zipf_samples_path = 'zipf_samples.npy'
+samples = np.load(zipf_samples_path)
+
+# Calculate distribution and optimal p, q for various epsilon values
+N = 10000
+domain_size = 100
+epsilon_values = [0.5, 1, 2, 4]
+real_distribution = calculate_real_distribution(samples, domain_size)
 
 # Calculate average variances for each epsilon
-average_variances_per_epsilon = calculate_optimal_p_q_per_fi(real_distribution, N_SAMPLES, epsilon_values)
+average_variances_per_epsilon = calculate_optimal_p_q_per_fi(real_distribution, N, epsilon_values)
 
 # Save the results to a text file
 output_file_path = 'KWOR_theoretical.txt'

@@ -41,14 +41,14 @@ def calculate_optimal_p_q_per_fi(distribution, N, epsilon_values):
         average_variances_per_epsilon.append(np.nanmean(variances) / N)
     return average_variances_per_epsilon
 
-filename = 'kosarak.dat'
+filename = 'usa_00010.dat'
 epsilon_values = np.linspace(0.5, 5, 10)
 sample = read_data_to_array(filename)
 samples = (sample + 20000) // 1000
 N_SAMPLES = len(samples)
 DOMAIN_SIZE = max(samples) + 1
 NUM_OF_EPSILON = len(epsilon_values)
-EPOCHS = 100
+EPOCHS = 10
 real_distribution = calculate_real_distribution(samples, DOMAIN_SIZE)
 
 # Calculate average variances for each epsilon
